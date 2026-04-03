@@ -1,0 +1,31 @@
+{
+  "name": "ad-m-github-push-action",
+  "version": "1.0.0",
+  "description": "Pushing to GitHub repository local changes",
+  "homepage": "https://github.com/step-security/ad-m-github-push-action#readme",
+  "bugs": {
+    "url": "https://github.com/step-security/ad-m-github-push-action/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/step-security/ad-m-github-push-action.git"
+  },
+  "license": "MIT",
+  "author": "step-security",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "type": "module",
+  "main": "start.js",
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "build": "npm run clean && npx ncc build start.js -o dist --license licenses.txt"
+  },
+  "dependencies": {
+    "@actions/core": "2.0.1",
+    "axios": "1.13.6"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.3"
+  }
+}
