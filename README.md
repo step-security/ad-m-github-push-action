@@ -283,7 +283,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         ref: ${{ github.ref_name }}   # must be a branch, not a tag or SHA (detached HEAD)
         fetch-depth: 0
@@ -296,7 +296,7 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git commit -a -m "Add changes"
     - name: Push changes
-      uses: ad-m/github-push-action@master
+      uses: step-security/ad-m-github-push-action@v1
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: ${{ github.ref }}
@@ -334,7 +334,7 @@ This means `actions/checkout` checked out a commit SHA or tag instead of a branc
 **Fix:** Pass an explicit branch `ref` to `actions/checkout`:
 
 ```yaml
-- uses: actions/checkout@v4
+- uses: actions/checkout@v6
   with:
     ref: ${{ github.head_ref }}   # for pull_request workflows
     # or
