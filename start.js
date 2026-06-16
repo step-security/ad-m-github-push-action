@@ -92,7 +92,8 @@ const main = async () => {
         const headers = {
             'User-Agent': 'github.com/step-security/ad-m-github-push-action'
         };
-        if (process.env.INPUT_GITHUB_TOKEN) headers.Authorization = `token ${process.env.INPUT_GITHUB_TOKEN}`;
+        const token = process.env.INPUT_TOKEN || process.env.INPUT_GITHUB_TOKEN;
+        if (token) headers.Authorization = `token ${token}`;
         const { data } = await axios.get(`${process.env.GITHUB_API_URL}/repos/${repository}`, { headers });
         branch = data.default_branch;
     }
@@ -103,6 +104,7 @@ const main = async () => {
             INPUT_REPOSITORY: repository,
             INPUT_GITHUB_URL_PROTOCOL: github_url_protocol,
             INPUT_GITHUB_URL: github_url,
+            INPUT_GITHUB_TOKEN: process.env.INPUT_TOKEN || process.env.INPUT_GITHUB_TOKEN,
         }
     });
 };
