@@ -1,0 +1,18 @@
+{
+   "schema_version": "1",
+   "onboarding_type": "copied",
+   "archived": false,
+   "maintained_action_name": "step-security/ad-m-github-push-action",
+   "upstream_full_repo_name": "ad-m/github-push-action",
+   "action_type": "node",
+   "last_release": {
+     "tag_name": "v1.3.0",
+     "created_at": "2026-06-17T04:50:41Z",
+     "published_at": "2026-06-18T15:48:39Z"
+   },
+   "sync": {
+     "ignore_presets": [
+       "defaults_v1"
+     ]
+   }
+ }
